@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>Your Moving Companion</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <form id="form-container" class="form-container">
+        <label for="street">Street: </label><input type="text" id="street" value="">
+        <label for="city">City and State: </label><input type="text" id="city" value="">
+        <button id="submit-btn">Submit</button>
+    </form>
+
+    <hr>
+
+
+<div class="row" style="height: 2%;">
+    <h2 id="greeting" class="greeting">Where do you want to live?</h2>
+</div>
+
+
+<div class="row">
+	<div class="weather-container">
+		<h3 id="weather-header">Relevant Weather</h3>
+		<div class="weather-report"></div>
+	</div>
+</div>
+
+
+<div class="row">
+    <div class="wikipedia-container">
+        <h3 id="wikipedia-header">Relevant Wikipedia Links</h3>
+        <ul id="wikipedia-links">Type in an address above and find relevant Wikipedia articles here!</ul>
+    </div>
+
+
+    <div class="news-container">
+        <h3 id="news-header">Relevant News Articles</h3>
+        <ul id="news-articles" class="article-list">What's going on in your new city? Enter an address and hit submit and news from a variety of sources will tell you here!</ul>
+    </div>
+</div>
+
+
+    <script src="js/libs/jquery.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
+
+
