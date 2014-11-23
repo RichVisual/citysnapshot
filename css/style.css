@@ -3,6 +3,7 @@ body {
     background-color: #CCC; 
     text-transform: capitalize;
     text-shadow: #707070 5px 5px 5px;
+    text-align: center;
 }
 
 .row {
@@ -16,6 +17,10 @@ body {
     width:100%;
     z-index:-1;
     opacity:1;
+}
+
+.form-container {
+    background-color: rgba(255,255,255,0.7);
 }
 
 #street, #city , #submit-btn
@@ -47,7 +52,7 @@ body {
 .greeting {
     color: #4169e1;
     text-shadow: 1px 1px 3px rgba(255,255,255, .5);
-    text-align: center;
+    /*text-align: center;*/
     background-color: rgba(255,255,255,0.7);
 }
 
@@ -90,9 +95,9 @@ body {
 
 .weather-container {
     /*border-style: inset;*/
-    padding: 1%;
-    text-align: center;
-    margin: 1%;
+    padding: 0.5%;
+    /*text-align: center;*/
+    margin: 0.5%;
     background-color: rgba(255,255,255,0.7);
 }
 
