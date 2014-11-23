@@ -1,0 +1,107 @@
+* {box-sizing:border-box;}
+body {
+    background-color: #CCC; 
+    text-transform: capitalize;
+    text-shadow: #707070 5px 5px 5px;
+}
+
+.row {
+    width: 100%;
+}
+
+.bgimg {
+    position:fixed;
+    top: 0;
+    left: 0;
+    width:100%;
+    z-index:-1;
+    opacity:1;
+}
+
+#street, #city , #submit-btn
+{
+    border-style: solid;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    -webkit-border-radius: 10px;
+}
+
+#submit-btn
+{
+    background-color: #ba55d3;
+    border-color: black;
+    color: white;
+}
+
+#street, #city 
+{
+    background-color: #4169e1;
+}
+
+#street:focus, #city:focus 
+{
+     background-color: #87ceeb;
+}
+
+.greeting {
+    color: #4169e1;
+    text-shadow: 1px 1px 3px rgba(255,255,255, .5);
+    text-align: center;
+    background-color: rgba(255,255,255,0.7);
+}
+
+.wikipedia-container {
+    float:right;
+    /*border-style: inset;*/
+    width: 30%;
+    padding: 5%;
+    margin-right: 10px;
+    background-color: rgba(255,255,255,0.7);
+}
+
+.news-container {
+    padding: 2.5%;
+    /*border-style: inset;*/
+    margin-right: 5%;
+    width: 60%;
+    background-color: rgba(255,255,255,0.7);
+}
+
+.article-list {
+    margin: 0;
+    padding: 0;
+}
+
+.article {
+    list-style-type: none;
+    padding:10px;
+    border-top: 1px solid #CCC;
+}
+.article:first-child {
+    border-top:none;
+}
+
+.gap {
+    padding: 1%;
+    border-style: outset;
+    border-radius: 1em;
+}
+
+.weather-container {
+    /*border-style: inset;*/
+    padding: 1%;
+    text-align: center;
+    margin: 1%;
+    background-color: rgba(255,255,255,0.7);
+}
+
+.weather-report {
+    margin: 0;
+    padding: 1%;
+    color: black;
+    font-weight: 600;
+    font-size: 125%;
+}
+
+
