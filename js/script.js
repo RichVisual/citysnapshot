@@ -7,6 +7,7 @@ function loadData() {
     var $newsElem = $('#news-articles');
     var $greeting = $('#greeting');
     var $weatherElem = $('.weather-report');
+    var $imgElem = $('#img');
 
     // clear out old data before new request
     $wikiElem.text("");
@@ -34,8 +35,8 @@ function loadData() {
 
     var address = str+','+cty;
     $greeting.text('So you want to move to '+cty+'?');
-    var streetview = 'https://maps.googleapis.com/maps/api/streetview?size=600x400&location='+address+'';
-    $body.append('<img class="bgimg" src="'+streetview+'">');
+    var streetview = 'https://maps.googleapis.com/maps/api/streetview?size=600x400&location='+cty+'';
+    $imgElem.html('<img class="bgimg" src="'+streetview+'">');
 
 
     /* requests with 8 second (8000 ms) timeout. 
@@ -44,7 +45,7 @@ function loadData() {
     */
 
     var wikiRequestTimeout = setTimeout(function() { 
-        $wikiElem.text("Failed to get Wikipedia resources"); 
+        $wikiElem.text("Failed to get Wikipedia resources. Wait a few seconds for refresh."); 
     }, 8000);
 
     var wikiurl = 'http://en.wikipedia.org/w/api.php?action=opensearch&search='+cty+'&format=json&callback=wikiCallback';
@@ -64,8 +65,9 @@ function loadData() {
 
 
     var redditRequestTimeout = setTimeout(function() { 
-    $newsElem.text("Failed to get Reddit resources"); 
-    }, 10000);
+    $newsElem.text("Failed to get Reddit resources.  Wait a few seconds for refresh."); 
+    getNews();
+    }, 8000);
 
     var redditurl = 'http://www.reddit.com/r/news/search.json?q='+cty+'&sort=new&restrict_sr=on&t=all&jsonp=?';
     var getNews = function() {
@@ -74,16 +76,18 @@ function loadData() {
             dataType: 'jsonp', 
             success: function(response) {
                 var articleList = response.data.children;
+                var result = "";
                 for(var i=0; i<articleList.length; i++){
                     entry = articleList[i].data;
-                    var link = 'http://www.reddit.com/'+entry.permalink;
-                    $newsElem.append('<li class="gap"><a href="'+entry.url+'">'+entry.title+'</a></li>');
+                    //var link = 'http://www.reddit.com/'+entry.permalink;
+                    result += ('<li class="gap"><a href="'+entry.url+'">'+entry.title+'</a></li>');
                 }
+                $newsElem.html(result);
                 clearTimeout(redditRequestTimeout);
             },
             complete: function() {
               // Schedule the next request when the current one's complete
-              setTimeout(getNews, 60000); // refresh every 60 seconds
+              setTimeout(getNews, 30000); // refresh every 30 seconds
             },
         });
     }
@@ -92,7 +96,8 @@ function loadData() {
 
 
     var weatherRequestTimeout = setTimeout(function() { 
-    $weatherElem.text("Failed to get weather resources"); 
+    $weatherElem.text("Failed to get weather resources.  Wait a few seconds for refresh."); 
+    getWeather();
     }, 10000);
 
     var getWeather = function() {
@@ -108,7 +113,7 @@ function loadData() {
             },
             complete: function() {
               // Schedule the next request when the current one's complete
-              setTimeout(getWeather, 60000); // refresh every 60 seconds
+              setTimeout(getWeather, 25000); // refresh every 25 seconds
             },
             error: function(xhr, status) {
                 /* handle error here */
